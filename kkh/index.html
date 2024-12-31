@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A special website dedicated to my love. Filled with our cherished memories and heartfelt messages."
+    />
+    <title>AKHU...</title>
+    <!-- Importing Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@700&family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        To My Love ❤<br />
+        ❤️ KHUSHI ❤️️
+      </h1>
+      <p>
+        A special gift for my most special person.<br />
+        A place for our memories💙
+      </p>
+    </header>
+
+    <main>
+      <!-- Photo Gallery Section -->
+      <section id="photo-gallery">
+        <h2>Pictures that tells a story...🫂</h2>
+        <div class="gallery">
+          <div class="photo">
+            <img src="pic/red.jpg" alt="Moment 1" />
+            <div class="photo-text">First date with you 💖</div>
+          </div>
+          <div class="photo">
+            <img src="pic/her.jpg" alt="Moment 2" />
+            <div class="photo-text">just looking like wow!!! ✨</div>
+          </div>
+          <div class="photo">
+            <img src="pic/gift.jpg" alt="Moment 3" />
+            <div class="photo-text">boyfriend's fav dress ✨</div>
+          </div>
+          <div class="photo">
+            <img src="pic/k.jpg" alt="Moment 4" />
+            <div class="photo-text">beautiful lady 🌟</div>
+          </div>
+          <div class="photo">
+            <img src="pic/coffee.jpg" alt="Moment 5" />
+            <div class="photo-text">Coffee date 🚗</div>
+          </div>
+          <div class="photo">
+            <img src="pic/prop.jpg" alt="Moment 6" />
+            <div class="photo-text">propose hai ya dhamki??? 😄</div>
+          </div>
+
+          <div class="photo">
+            <img src="pic/saree.jpg" alt="Moment 6" />
+            <div class="photo-text">Girlfrind... 🌅</div>
+          </div>
+
+          <div class="photo">
+            <img src="pic/selfee.jpg" alt="Moment 6" />
+            <div class="photo-text">First Selfee Together 💖</div>
+          </div>
+
+          <div class="photo">
+            <img src="pic/hand.jpg" alt="Moment 6" />
+            <div class="photo-text">Hands of promise 🌅</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Long Paragraph Section -->
+      <section id="message">
+        <h2>Darling A Love Letter For You️ ️️❤️️❤️️️</h2>
+        <p id="love-letter-preview" onclick="expandLoveLetter()">
+          Click here !!!
+        </p>
+        <div id="full-love-letter" style="display: none">
+          <p>
+            My dearest love KHUSHI,<br />
+            You mean the world to me, my everything, my entire heart. You are so
+            precious to me, so special. Jaan, ye letter aapke liye ek yaad hai
+            that ki aapka boyfriend aapse pyaar karta hai aur ye wo special
+            memories hain jo hum dono kabhi nahi bhool sakenge. We have spent so
+            many memories together, whether it’s our first hug, first selfie, or
+            our date. Everything about you is so magical that I just get lost in
+            it. My angry bird, please be a little calm too. with this letter
+            apna gussa hatao aur maan jao... <br />
+            At last, I want to say one line.<br />
+            <br />
+            My ears hear many voices<br />
+            But I listen only to yours<br />
+            My eyes watch many people<br />
+            But I search for only you<br />
+            My heart beats many times<br />
+            But it beats only for you<br />
+            ❤️ <br />
+            A cute song for you, baby.
+          </p>
+          <div id="audio-player" style="display: none">
+            <h3>Song dedicated to you</h3>
+            <audio id="audio" controls>
+              <source src="pic/song.mp4" type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+      </section>
+
+      <!-- Button Section -->
+      <section id="popup">
+        <div class="button-container">
+          <button class="modern-button" onclick="showLoveMessage()">
+            Click here <br />
+            (for a special msg.)
+          </button>
+        </div>
+        <div class="popup">
+          <div class="popup-content">
+            <p>
+              KHUSHI,<br />
+              My dearest love, You mean the world to me. I cherish every moment
+              we share and look forward to a beautiful future together.<br />Here's
+              to forever and always. <br />
+              Happy anniversary baby❤️💙🫂
+            </p>
+            <button class="close-button" onclick="closePopup()">Close</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h3>Your boyfriend with all my love, always ❤️</h3>
+    </footer>
+
+    <script>
+      function showLoveMessage() {
+        // Show the popup
+        document.querySelector(".popup").style.display = "flex";
+        // Add blur effect to the body
+        document.body.classList.add("popup-active");
+      }
+
+      function closePopup() {
+        // Hide the popup
+        document.querySelector(".popup").style.display = "none";
+        // Remove blur effect from the body
+        document.body.classList.remove("popup-active");
+      }
+
+      // Function to toggle the photo effect (enlarge, blur, and show text)
+      function togglePhoto(photoElement) {
+        const img = photoElement.querySelector("img");
+        const text = photoElement.querySelector(".photo-text");
+
+        // Toggle the photo's state
+        if (img.classList.contains("active")) {
+          img.classList.remove("active");
+          text.classList.remove("active");
+        } else {
+          img.classList.add("active");
+          text.classList.add("active");
+        }
+      }
+
+      // Add an event listener to each photo element
+      document.querySelectorAll(".photo").forEach((photo) => {
+        photo.addEventListener("click", () => togglePhoto(photo));
+      });
+
+      //   function expandLoveLetter() {
+      //     var loveLetter = document.getElementById("full-love-letter");
+      //     var audioPlayer = document.getElementById("audio-player");
+
+      //     // Expand the love letter and show the audio player
+      //     if (loveLetter.style.display === "none") {
+      //       loveLetter.style.display = "block";
+      //       audioPlayer.style.display = "block"; // Show the audio player
+      //       document.getElementById("love-letter-preview").innerHTML =
+      //         "The letter is now expanded! ❤️";
+      //     } else {
+      //       // If already expanded, do nothing or collapse it if needed
+      //       loveLetter.style.display = "none";
+      //       audioPlayer.style.display = "none"; // Hide the audio player again if collapsed
+      //       document.getElementById("love-letter-preview").innerHTML =
+      //         "Click here to read my love letter";
+      //     }
+      //   }
+
+      function expandLoveLetter() {
+        var loveLetter = document.getElementById("full-love-letter");
+        var audioPlayer = document.getElementById("audio-player");
+        var audio = document.getElementById("audio");
+
+        // Expand the love letter and show the audio player
+        if (loveLetter.style.display === "none") {
+          loveLetter.style.display = "block";
+          audioPlayer.style.display = "block"; // Show the audio player
+          audio.play(); // Automatically play the audio when the letter is expanded
+          document.getElementById("love-letter-preview").innerHTML =
+            "The letter is now expanded! ❤️";
+        } else {
+          // If already expanded, do nothing or collapse it if needed
+          loveLetter.style.display = "none";
+          audioPlayer.style.display = "none"; // Hide the audio player again if collapsed
+          audio.pause(); // Pause the audio when collapsed
+          document.getElementById("love-letter-preview").innerHTML =
+            "Click here to read my love letter";
+        }
+      }
+    </script>
+  </body>
+</html>

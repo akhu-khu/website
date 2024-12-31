@@ -1,0 +1,372 @@
+/* General Styling */
+body {
+  font-family: "Roboto", sans-serif; /* Clean and modern font for body text */
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  transition: filter 0.3s ease;
+}
+
+body.popup-active {
+  overflow: hidden; /* Prevent scrolling */
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffe5e5;
+  font-family: "Playfair Display", serif; /* Elegant font for headers */
+}
+
+/* Header */
+header h1 {
+  font-family: "Playfair Display", serif; /* Playfair Display for main header */
+  font-size: 3em;
+  color: #333;
+}
+
+header p {
+  font-family: "Roboto", sans-serif; /* Roboto for subtext */
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  font-size: 0.9em;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Section Padding */
+section {
+  padding: 20px;
+}
+
+/* Photo Gallery (Collage Style) */
+#photo-gallery {
+  padding: 20px;
+  text-align: center;
+  background-color: #fff5f5;
+}
+
+#photo-gallery h2 {
+  font-family: "Playfair Display", serif; /* Playfair Display for section titles */
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ff6ec4;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
+  grid-gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gallery .photo {
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for both scale and blur */
+}
+
+.photo:hover img {
+  transform: scale(1.1); /* Slight enlargement */
+  filter: blur(4px); /* Apply blur on hover */
+}
+
+.photo-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 1.5em;
+  padding: 15px;
+  border-radius: 5px;
+  opacity: 0; /* Hidden initially */
+  transition: opacity 0.3s ease; /* Smooth fade-in */
+  text-align: center;
+}
+
+.photo:hover .photo-text {
+  opacity: 1; /* Show text on hover */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr; /* 2 columns on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+  }
+}
+
+/* Popup Message */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 20px;
+  z-index: 10;
+}
+
+.popup.show {
+  display: flex;
+}
+
+#full-love-letter {
+  padding: 20px;
+  background-color: #f9f0e1; /* Cream color background */
+  text-align: center; /* Center the content */
+  font-family: "Dancing Script", cursive; /* Fancy and elegant font */
+  color: #4a3f35; /* Darker text color for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+#full-love-letter p {
+  font-size: 1.2em;
+  line-height: 1.8;
+}
+
+/* Audio Player Section */
+#audio-player {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+#audio-player h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  color: #ff6ec4;
+}
+
+/* Styling the audio element */
+audio {
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  border-radius: 30px;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #ff6ec4;
+  border-radius: 30px;
+  color: white;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: #7873f5;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+audio::-webkit-media-controls-play-button:hover {
+  background-color: #ff6ec4;
+  transform: scale(1.1);
+}
+
+audio::-webkit-media-controls-volume-slider {
+  background-color: #7873f5;
+}
+
+/* Styling audio controls */
+audio::-webkit-media-controls-volume-slider-container {
+  background-color: #7873f5;
+}
+
+audio::-webkit-media-controls-timeline {
+  background-color: #ff6ec4;
+  border-radius: 20px;
+}
+
+/* Customize controls on hover or focus */
+audio:focus {
+  outline: none;
+  border: 2px solid #ff6ec4;
+}
+
+/* Button Container to center the button */
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  align-items: center; /* Centers the button vertically */
+  padding: 40px 0; /* Add padding to space it a little */
+  text-align: center; /* Centers button text inside */
+}
+
+/* Modern Button Style */
+.modern-button {
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 15px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.modern-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modern-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Popup Styles */
+.popup {
+  display: none; /* Ensure the popup is hidden initially */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  backdrop-filter: blur(10px); /* Blurring effect for the background only */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  text-align: center;
+  font-family: "Georgia", serif;
+  line-height: 1.5;
+  font-size: 1.2em;
+  position: relative;
+  z-index: 1001;
+  color: #000; /* Text color black */
+}
+
+/* Message Box Style */
+.message-box {
+  max-width: 500px; /* Limiting the width for the message */
+  font-size: 1.1em;
+  color: #333;
+}
+
+.message-box p {
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Love Letter Section */
+#message {
+  padding: 50px;
+  background-color: #f9f0e1; /* Cream color background */
+  text-align: center; /* Center the content */
+  font-family: "Dancing Script", cursive; /* Fancy and elegant font */
+  color: #4a3f35; /* Darker text color for contrast */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 600px; /* Limit width for better presentation */
+}
+
+#message h2 {
+  font-family: "Playfair Display", serif; /* Playfair Display for heading */
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #ff6ec4; /* Soft pink color for the heading */
+}
+
+#message p {
+  font-size: 1.2em;
+  line-height: 1.8;
+}
+
+/* Close Button */
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff6ec4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease;
+}
+
+.close-button:hover {
+  background: #e055b3;
+}
+
+/* Blur the rest of the page when the popup is open */
+body.popup-active {
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Initially hide the audio player */
+#audio-player {
+  display: none; /* Hide it initially */
+}
+
+/* Show the audio player when the love letter section is expanded */
+#full-love-letter.expanded #audio-player {
+  display: block; /* Show audio player when the letter is expanded */
+}
+
+/* Styling the audio player */
+#audio {
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  border-radius: 30px;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
